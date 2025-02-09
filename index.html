@@ -33,6 +33,7 @@
     <div id="weatherResult"></div>
 
     <script>
+        // Function to trigger weather fetching
         async function getWeather() {
             const city = document.getElementById("cityInput").value;
             const apiKey = "ce2ec63ad488607bd7d03d2fb97de21c"; // Replace with your OpenWeatherMap API key
@@ -55,6 +56,13 @@
                 document.getElementById("weatherResult").innerHTML = `<p style="color:red;">Error fetching data.</p>`;
             }
         }
+
+        // Listen for the Enter key press to trigger the weather fetch
+        document.getElementById("cityInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                getWeather(); // Trigger the getWeather function when Enter is pressed
+            }
+        });
     </script>
 </body>
 </html>
